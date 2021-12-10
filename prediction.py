@@ -5,8 +5,21 @@ import face_recognition as fr
 from facerec import face_data
 import time
 
-
+dataset = os.listdir('images')
+dataset = dataset[1:]
+checked = [False]*len(dataset)
+# print(checked)
 test_images = os.listdir('test-set')
+
+def isthere(ret):        
+    for i in range(len(ret)):
+        if checked[i]:
+            break
+        if ret[i]:
+            checked[i] = True
+            print(dataset[i].split('.')[0])
+            break
+    return True
 
 start = time.time()
 for i in test_images:
@@ -19,7 +32,9 @@ for i in test_images:
         curr_encoding = fr.face_encodings(frame)[0]
         # print(fr.face_encodings(frame))
         ret = fr.compare_faces(face_data,curr_encoding)
-        print(ret)
+        if isthere(ret):
+            break
+
 print(time.time()-start)
 
 

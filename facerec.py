@@ -16,7 +16,7 @@ for i in image_files:
     img = cv2.imread(f'./images/{i}')
     images.append(img)
     names.append(i.split('.')[0])
-    print(names)
+    # print(names)
 
 count = 0
 # for i in images:
