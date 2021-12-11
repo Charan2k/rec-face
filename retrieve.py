@@ -1,12 +1,10 @@
 import boto3
 import cv2
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
+from vars import *
+
 
 s3 = boto3.resource('s3', region_name='us-east-2')
-bucket_name = 'student-faces-devjam'
 bucket = s3.Bucket(bucket_name)
-folder_name = 'student-faces'
 
 def download(filename):
     object = bucket.Object(f'{folder_name}/{filename}')
