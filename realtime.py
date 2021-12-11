@@ -19,6 +19,10 @@ def markAttendance(matches,matcheindex):
             presenties.append(name)
             now = datetime.now()
             ptime.append(now.strftime('%H:%M:%S'))
+
+            
+    # function to add data to the db table
+
     print(presenties)
     print(ptime)
 
