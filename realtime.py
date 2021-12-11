@@ -26,8 +26,6 @@ def markAttendance(matches,matcheindex):
 
 while True:
     success, img = cam.read()
-
-
     capturedfaces = fr.face_locations(img)
     capturedFacesEncodings = fr.face_encodings(img,capturedfaces)
 
@@ -41,16 +39,6 @@ while True:
 
         markAttendance(matches,matchindex)
 
-
-        """if matches[matchindex]:
-            name = names[matchindex].upper()
-            if name not in presenties:
-                presenties.append(name)
-                now = datetime.now()
-                ptime.append(now.strftime('%H:%M:%S'))
-
-    print(presenties)
-    print(ptime)"""
     noOfstudentsPresent = len(presenties)
     cv2.imshow("cmaOn", img)
     cv2.waitKey(1)
@@ -68,8 +56,7 @@ while True:
 
 
 
-
-"""while True:
+while True:
     _, img = cam.read()
     faces = fr.face_locations(img)
     
@@ -84,4 +71,4 @@ while True:
             break
 
     if 0xFF==ord('q'):
-        cv2.destroyAllWindows()"""
+        cv2.destroyAllWindows()

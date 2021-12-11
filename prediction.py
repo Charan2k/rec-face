@@ -2,13 +2,14 @@ import cv2
 import os
 import numpy as np
 import face_recognition as fr
-from facerec import face_data_encodings
 import time
+from facerec import face_data_encodings
+from vars import *
 
-dataset = os.listdir('images')
+dataset = os.listdir(folder_name)
 dataset = dataset[1:]
 checked = [False]*len(dataset)
-test_images = os.listdir('test-set')
+test_images = os.listdir(test_set)
 
 def isthere(ret):        
     for i in range(len(ret)):
@@ -18,9 +19,11 @@ def isthere(ret):
             break
     return True
 
-start = time.time()
+# for checking efficiency
+# start = time.time() 
+
 for i in test_images:
-    curr_image = cv2.imread(f'./test-set/{i}')
+    curr_image = cv2.imread(f'./{test_set}/{i}')
     faces = fr.face_locations(curr_image)
     print(len(faces))
     # faces = np.ndarray(faces)
@@ -34,7 +37,7 @@ for i in test_images:
         if isthere(ret):
             break
 
-print(time.time()-start)
+# print(time.time()-start)
 
 
 

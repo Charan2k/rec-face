@@ -1,30 +1,21 @@
 import os
 import cv2 
 import face_recognition as fr
-
+from vars import *
 
 # cam = cv2.VideoCapture(0)
 images = []
-
-image_files = os.listdir('images')
+image_files = os.listdir(folder_name)
 image_files = image_files[1:]
 
 # images.append(fr.load_image_file('./images/charan.png'))
 # print(images[0])
 names = []
 for i in image_files:
-    img = cv2.imread(f'./images/{i}')
+    img = cv2.imread(f'./{folder_name}/{i}')
     images.append(img)
     names.append(i.split('.')[0])
     # print(names)
-
-count = 0
-# for i in images:
-#     count += 1
-#     cv2.imshow(f'{count}',i)
-#     if cv2.waitKey(1000) or 0xFF==ord('q'):
-#         cv2.destroyAllWindows()
-
 
 def DbEncodings(images):
     encList = []
