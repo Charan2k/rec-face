@@ -10,6 +10,11 @@ import  time
 cam = cv2.VideoCapture(0)
 presenties = []
 ptime=[]
+import sqlite3
+from typing import Counter
+
+con = sqlite3.connect('attendance-system.db')
+cursor = con.cursor()
 
 
 def markAttendance(matches,matcheindex):
@@ -25,6 +30,7 @@ def markAttendance(matches,matcheindex):
 
     print(presenties)
     print(ptime)
+    cursor.execute(f'insert into attendance values (1,{presenties},{ptime},"P")')
 
 
 

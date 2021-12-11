@@ -4,8 +4,8 @@
 # print(os.listdir())
 # print(len(os.listdir()))
 
-import cv2
-import face_recognition as fr
+# import cv2
+# import face_recognition as fr
 
 # img = cv2.imread('test-set/4.jpg')
 
@@ -29,9 +29,34 @@ import face_recognition as fr
 #         cv2.destroyAllWindows()
 
 
-cam = cv2.VideoCapture(0)
-while True:
-    ret, img = cam.read()
-    cv2.imshow("t.jpg",img)
-    if cv2.waitKey(100) or 0xFF==ord('q'):
-        cv2.destroyAllWindows()
+# cam = cv2.VideoCapture(0)
+# while True:
+#     ret, img = cam.read()
+#     cv2.imshow("t.jpg",img)
+#     if cv2.waitKey(100) or 0xFF==ord('q'):
+#         cv2.destroyAllWindows()
+
+
+
+import mysql.connector
+
+mydb = mysql.connector.connect(
+  host="ai-attendance-devjam.c92vkw0v7cnn.ap-south-1.rds.amazonaws.com",
+  user="admin",
+  passwd="admin123",
+  database="test1"
+)
+
+cursor = mydb.cursor()
+cursor.execute('show tables')
+for x in cursor:
+    print(x)
+
+username = 'Rishi'
+password = 'rishi'
+cursor.execute('SELECT * FROM student')
+account = cursor.fetchall()
+for x in cursor:
+    print(x)
+
+print(account)
