@@ -35,7 +35,7 @@ def DbEncodings(images):
         encList.append(enc)
     return encList
 
-face_data = DbEncodings(images)
+face_data_encodings = DbEncodings(images)
 
 # test_images = os.listdir('test-set')
 # for i in test_images:
