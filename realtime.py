@@ -5,13 +5,13 @@ from facerec import face_data_encodings,names
 from prediction import isthere
 from datetime import datetime
 import  time
+import sqlite3
+from typing import Counter
 
 
 cam = cv2.VideoCapture(0)
 presenties = []
 ptime=[]
-import sqlite3
-from typing import Counter
 
 con = sqlite3.connect('attendance-system.db')
 cursor = con.cursor()
