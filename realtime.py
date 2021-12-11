@@ -66,19 +66,19 @@ while True:
 
 
 
-while True:
-    _, img = cam.read()
-    faces = fr.face_locations(img)
+# while True:
+#     _, img = cam.read()
+#     faces = fr.face_locations(img)
     
-    cv2.imshow("Cam-1",img)
-    for face in faces:
-        a,b,c,d = face
-        frame = img[a:c,d:b]
-        curr_encoding = fr.face_encodings(frame)[0]
-        # print(fr.face_encodings(frame))
-        ret = fr.compare_faces(face_data_encodings, curr_encoding)
-        if isthere(ret):
-            break
+#     cv2.imshow("Cam-1",img)
+#     for face in faces:
+#         a,b,c,d = face
+#         frame = img[a:c,d:b]
+#         curr_encoding = fr.face_encodings(frame)[0]
+#         # print(fr.face_encodings(frame))
+#         ret = fr.compare_faces(face_data_encodings, curr_encoding)
+#         if isthere(ret):
+#             break
 
-    if 0xFF==ord('q'):
-        cv2.destroyAllWindows()
+#     if 0xFF==ord('q'):
+#         cv2.destroyAllWindows()
